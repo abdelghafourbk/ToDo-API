@@ -10,15 +10,18 @@ const mongoose = require("mongoose");
 
 let taskSchema= new mongoose.Schema(
 {
-        Index:{
+        
+
+        user: { 
+            type: mongoose.Types.ObjectId,
+            ref: "user"
+        },
+
+        Index:{    //! i think we should call it a priority
             type:int,
             required:true
         },
 
-        user: {
-            type: mongoose.Types.ObjectId,
-            ref: "user",
-        },
         title:{
             type: String,
             required: true
@@ -34,7 +37,7 @@ let taskSchema= new mongoose.Schema(
         day:{
             type:Date
         }
-}
+},{timestamps : true}
 
 );
-module.exports=mongoose.model("task",taskSchema);
+module.exports = mongoose.model("task",taskSchema);
