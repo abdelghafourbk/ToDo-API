@@ -1,0 +1,76 @@
+// next time add project and lists
+//middlewares:
+    ✔️For users:
+       ✔️ create user (register)
+       ✔️login
+        logout user ✔️                            
+       ✔️ update user
+        delete user ✔️
+        upload user image ✔️
+        delete user image ✔️
+    ✔️For tasks:
+        ✔️create tasks
+       ✔️ show all tasks
+      ✔️  show tasks by id
+       ✔️ show tasks by completed
+       ✔️ update task (by id)
+       ✔️ delete task (by id)
+    ✔️For authentification:
+        ✔️authentificate user
+
+
+///////////////////////////////////////////////////
+
+
+//schemas:
+✔️user schema
+
+    "name": String,
+    "email": “@gmail.com",
+    "password": String,
+    "image":String
+
+✔️task schema
+   XXXX listID: Object_id,
+        userID: Object_id,
+        Index: int,   
+        day :”date”,
+        title: string,
+        Text: string ,
+        Completed: Boolean,
+
+List schema
+        title: String
+        users: Object_id,
+        description: String
+
+
+
+//////////////////////////////////////////////////////
+
+
+//Routers :
+
+user:
+    ./                       =>GET      return log in page if not logged // else : return main page 
+   ✔️ ./Logging                =>POST     (username ,password) log the user
+   ✔️ ./Register               =>POST     (username ,password ,image) mongo will create automatically the id 
+   ✔️  ./Logout/:id             =>POST     "RESTRICTED EXCEPT FOR THE LOGGED IN USER"
+   ✔️ ./UpdateUser/:id         =>PUT      update username and password  "RESTRICTED EXCEPT FOR LOGGED IN THE USER"
+   ✔️ ./UploadImage/:id        =>PUT     "RESTRICTED EXCEPT FOR THE LOGGED IN USER"
+   ✔️ ./DeleteImage/:id        =>DELETE   "RESTRICTED EXCEPT FOR THE USER"
+   ✔️ ./DeleteUser/:id         =>DELETE   delete account  "RESTRICTED EXCEPT FOR THE LOGGED IN USER"
+
+
+task:
+    ✔️ ./AddTask/               =>POST             "RESTRICTED EXCEPT FOR THE USER LOGGED IN USER"
+    ✔️./ShowTasks/             =>GET              "RESTRICTED EXCEPT FOR THE USER LOGGED IN USER"
+    ✔️./ShowCompletedTask      =>GET              "RESTRICTED EXCEPT FOR THE USER LOGGED IN USER"
+    ✔️./ShowSpecificTask/:id   =>GET     (by id) 
+    ✔️./UpdateTask/:           =>PUT     (by id)  "RESTRICTED EXCEPT FOR THE USER LOGGED IN USER"
+    ✔️./DeleteTask/:           =>PUT     (by id)  "RESTRICTED EXCEPT FOR THE USER LOGGED IN USER"
+
+
+
+
+
