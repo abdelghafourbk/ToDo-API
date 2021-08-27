@@ -31,7 +31,6 @@
     "image":String
 
 ✔️task schema
-   XXXX listID: Object_id,
         userID: Object_id,
         Index: int,   
         day :”date”,
@@ -39,10 +38,11 @@
         Text: string ,
         Completed: Boolean,
 
-List schema
+(project) schema
         title: String
         users: Object_id,
-        description: String
+        description: String,
+        tasks: object_id //with populate to see task title and description 
 
 
 

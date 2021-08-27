@@ -3,13 +3,15 @@ const express = require("express"),
     mongoose = require("mongoose"),
     port = 3000;
     app.use(express.json());
- authRouter= require("./routers/auth");
+authRouter= require("./routers/auth");
 userRouter = require("./routers/user");
 taskRouter = require("./routers/task");
+projectRouter = require("./routers/project");
 
 app.use("/auth",authRouter);
 app.use("/user",userRouter);
 app.use("/task",taskRouter);
+app.use("/project",projectRouter);
 
 
 

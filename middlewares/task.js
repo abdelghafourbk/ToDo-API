@@ -21,7 +21,7 @@ module.exports = {
         try {
             const tasks = await Task.find({user: req.user._id});
             res.status(200).json(tasks);
-        } catch (error) {
+        } catch (e) {
             next({ message: e.message, status: 500 });
         }    
     },

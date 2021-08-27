@@ -1,4 +1,5 @@
-const User = require("../models/user");
+const User = require("../models/user"),
+    task = require("../models/task");
 module.exports = {
     createUser: async (req, res,next) => {
        
@@ -65,6 +66,8 @@ module.exports = {
             {
                 const u = await User.findById(req.user._id); 
                 console.log(u.username);
+                const t = await task.find({user: u}); //*when we delete user, his fooking tasks will be deleted also
+                await task.remove({_id: t});
                 await u.remove();
                 res.json({ deleted: "successfully" });
             }else{
